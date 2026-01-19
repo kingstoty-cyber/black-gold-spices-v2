@@ -1,0 +1,1410 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الذهب الأسود | توابل مميزة - 10 أصناف مختارة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-pepper-hot"></i>
+            <h2>الذهب الأسود</h2>
+        </div>
+        <div class="nav-links">
+            <a href="#home">الرئيسية</a>
+            <a href="#products">المنتجات</a>
+            <a href="#features">لماذا نحن</a>
+            <a href="#contact">اتصل بنا</a>
+        </div>
+    </nav>
+
+    <!-- الهيدر -->
+    <header id="home">
+        <h1>توابل الذهب الأسود</h1>
+        <p>مجموعة الـ 10 المختارة بعناية من أجود أنواع التوابل، تستمد جودتها من أصول مختارة بعناية وتخلط بأسرار خبراء التوابل.</p>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <i class="fas fa-shipping-fast"></i>
+                <span>توصيل سريع</span>
+                <p>خلال 24-48 ساعة</p>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-star"></i>
+                <span>جودة عالية</span>
+                <p>منتج أصلي 100%</p>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-award"></i>
+                <span>ضمان الجودة</span>
+                <p>مراقبة الجودة</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- فلتر المنتجات -->
+    <section class="filter-section" id="products">
+        <h2>أصنافنا المميزة</h2>
+        <p>اختر من بين مجموعة التوابل المختارة التي تجمع بين الأصالة والجودة</p>
+        
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">جميع المنتجات</button>
+            <button class="filter-btn" data-filter="popular">الأكثر مبيعاً</button>
+            <button class="filter-btn" data-filter="discount">العروض</button>
+            <button class="filter-btn" data-filter="spicy">الحار</button>
+            <button class="filter-btn" data-filter="herbs">الأعشاب</button>
+        </div>
+    </section>
+
+    <!-- المنتجات -->
+    <section class="products-container">
+        <div class="products-grid" id="products-grid">
+            <!-- سيتم تعبئة المنتجات بواسطة الجافاسكريبت -->
+        </div>
+    </section>
+
+    <!-- قسم الخصائص -->
+    <section class="features" id="features">
+        <h2>لماذا تختار الذهب الأسود؟</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-seedling"></i>
+                <h3>منتجات طبيعية</h3>
+                <p>جميع توابلنا طبيعية 100% بدون أي إضافات كيميائية أو مواد حافظة</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-hand-holding-usd"></i>
+                <h3>أسعار تنافسية</h3>
+                <p>نقدم أفضل جودة بأفضل الأسعار مع ضمان استرداد المبلغ في حال عدم الرضا</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shipping-fast"></i>
+                <h3>توصيل سريع</h3>
+                <p>خدمة توصيل سريعة لجميع أنحاء ليبيا خلال 24-48 ساعة من تاريخ الطلب</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-headset"></i>
+                <h3>دعم فني</h3>
+                <p>فريق دعم فني متاح على مدار الساعة للرد على استفساراتكم وتلقي طلباتكم</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- سلة المشتريات -->
+    <div class="cart-footer" onclick="showOrderModal()">
+        <i class="fas fa-shopping-cart"></i>
+        <span>السلة: <span id="cart-count">0</span> أصناف</span>
+        <span class="cart-total" id="cart-total">0 د.ل</span>
+    </div>
+
+    <!-- رسالة تأكيد -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-message">تمت إضافة المنتج إلى السلة</span>
+    </div>
+
+    <!-- نافذة الطلب -->
+    <div class="modal" id="order-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>تأكيد الطلبية</h2>
+                <button class="close-modal" onclick="hideOrderModal()">&times;</button>
+            </div>
+            
+            <div class="cart-items" id="cart-items-list">
+                <!-- سيتم تعبئتها بواسطة الجافاسكريبت -->
+            </div>
+            
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>المجموع الجزئي:</span>
+                    <span id="subtotal">0 د.ل</span>
+                </div>
+                <div class="summary-row">
+                    <span>رسوم التوصيل:</span>
+                    <span id="shipping">10 د.ل</span>
+                </div>
+                <div class="summary-row total">
+                    <span>الإجمالي:</span>
+                    <span id="total">0 د.ل</span>
+                </div>
+            </div>
+            
+            <form id="order-form">
+                <div class="form-group">
+                    <label for="name">الاسم الكامل *</label>
+                    <input type="text" id="name" required placeholder="ادخل اسمك الثلاثي">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">رقم الهاتف *</label>
+                    <input type="tel" id="phone" required placeholder="ادخل رقم هاتفك">
+                </div>
+                
+                <div class="form-group">
+                    <label for="city">المدينة / المنطقة *</label>
+                    <select id="city" required>
+                        <option value="">اختر المدينة</option>
+                        <option value="طرابلس">طرابلس</option>
+                        <option value="بنغازي">بنغازي</option>
+                        <option value="مصراتة">مصراتة</option>
+                        <option value="سبها">سبها</option>
+                        <option value="الزاوية">الزاوية</option>
+                        <option value="الخمس">الخمس</option>
+                        <option value="غريان">غريان</option>
+                        <option value="درنة">درنة</option>
+                        <option value="أخرى">مدينة أخرى</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">العنوان التفصيلي</label>
+                    <textarea id="address" rows="3" placeholder="شارع - حي - معلم بارز"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="notes">ملاحظات إضافية (اختياري)</label>
+                    <textarea id="notes" rows="2" placeholder="ملاحظات حول الطلبية"></textarea>
+                </div>
+                
+                <div class="modal-buttons">
+                    <button type="button" class="buy-btn" onclick="sendWhatsAppOrder()">
+                        <i class="fab fa-whatsapp"></i> إرسال الطلب عبر واتساب
+                    </button>
+                    <button type="button" class="secondary-btn" onclick="hideOrderModal()">إلغاء</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- الفوتر -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>عن الذهب الأسود</h3>
+                <p>متجرنا متخصص في بيع أجود أنواع التوابل والبهارات الطبيعية المستوردة من مصادر موثوقة. نحرص على تقديم منتجات عالية الجودة بأسعار مناسبة.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>معلومات الاتصال</h3>
+                <div class="contact-info">
+                    <div><i class="fas fa-phone"></i> <span>0913020318</span></div>
+                    <div><i class="fas fa-envelope"></i> <span>info@blackgold.ly</span></div>
+                    <div><i class="fas fa-map-marker-alt"></i> <span>طرابلس - ليبيا</span></div>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>ساعات العمل</h3>
+                <div class="contact-info">
+                    <div><i class="fas fa-clock"></i> <span>السبت - الخميس: 9 صباحاً - 9 مساءً</span></div>
+                    <div><i class="fas fa-clock"></i> <span>الجمعة: 2 ظهراً - 9 مساءً</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; <span id="current-year"></span> الذهب الأسود للتوابل. جميع الحقوق محفوظة.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html><style>:root {
+    --gold: #d4af37;
+    --dark-gold: #b8860b;
+    --black: #0c0c0c;
+    --dark: #121212;
+    --light: #1a1a1a;
+    --lighter: #2a2a2a;
+    --text: #e0e0e0;
+    --success: #2e7d32;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--black);
+    color: var(--text);
+    font-family: 'Segoe UI', 'Cairo', Tahoma, sans-serif;
+    line-height: 1.6;
+}
+
+/* تحسين التمرير */
+html {
+    scroll-behavior: smooth;
+}
+
+/* شريط التنقل */
+.navbar {
+    position: sticky;
+    top: 0;
+    background: rgba(12, 12, 12, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--gold);
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo i {
+    color: var(--gold);
+    font-size: 1.8rem;
+}
+
+.logo h2 {
+    color: var(--gold);
+    font-size: 1.5rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+    background: rgba(212, 175, 55, 0.1);
+}
+
+/* الهيدر */
+header {
+    text-align: center;
+    padding: 80px 20px 60px;
+    background: linear-gradient(to bottom, #000000, var(--dark));
+    border-bottom: 1px solid var(--gold);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("images/header-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    z-index: 0;
+}
+
+header > * {
+    position: relative;
+    z-index: 1;
+}
+
+header h1 {
+    color: var(--gold);
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+header p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    color: #ccc;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item i {
+    color: var(--gold);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.stat-item span {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+}
+
+.stat-item p {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin: 0;
+}
+
+/* فلتر المنتجات */
+.filter-section {
+    padding: 30px 5%;
+    text-align: center;
+    background: var(--dark);
+    border-bottom: 1px solid #333;
+}
+
+.filter-section h2 {
+    color: var(--gold);
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.filter-section p {
+    color: #aaa;
+    max-width: 800px;
+    margin: 0 auto 20px;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.filter-btn {
+    background: var(--light);
+    color: var(--text);
+    border: 1px solid #444;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.filter-btn:hover {
+    background: var(--lighter);
+}
+
+.filter-btn.active {
+    background: var(--gold);
+    color: var(--black);
+    border-color: var(--gold);
+}
+
+/* حاوية المنتجات */
+.products-container {
+    padding: 40px 5%;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background: var(--light);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.4s;
+    border: 1px solid #333;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.15);
+}
+
+.product-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--gold);
+    color: var(--black);
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.product-image-container {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.3rem;
+    color: var(--gold);
+    min-height: 60px;
+}
+
+.product-description {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.product-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.price {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin: 10px 0 15px;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 1rem;
+    margin-left: 10px;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.qty-btn {
+    background: var(--lighter);
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.qty-btn:hover {
+    background: var(--gold);
+    color: black;
+}
+
+.quantity {
+    font-size: 1.2rem;
+    font-weight: bold;
+    min-width: 30px;
+    text-align: center;
+}
+
+.buy-btn {
+    background: var(--gold);
+    color: #000;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.buy-btn:hover {
+    background: var(--dark-gold);
+}
+
+.buy-btn.added {
+    background: var(--success);
+    color: white;
+}
+
+/* سلة الطلبات */
+.cart-footer {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: #000;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.cart-footer:hover {
+    transform: translateX(-50%) scale(1.05);
+}
+
+.cart-total {
+    background: black;
+    color: var(--gold);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* نافذة الطلب */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.modal-content {
+    background: var(--dark);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid var(--gold);
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.modal-header h2 {
+    color: var(--gold);
+    margin: 0;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-modal:hover {
+    color: var(--gold);
+}
+
+.cart-items {
+    margin-bottom: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+    border-bottom: 1px solid #333;
+    padding-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-info h4 {
+    margin-bottom: 5px;
+    color: var(--text);
+}
+
+.cart-item-price {
+    color: var(--gold);
+    font-weight: bold;
+}
+
+.cart-item-remove {
+    background: #ff4444;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.cart-item-remove:hover {
+    background: #cc0000;
+}
+
+.cart-summary {
+    margin: 20px 0;
+    padding: 15px;
+    background: var(--light);
+    border-radius: 10px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.summary-row.total {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--gold);
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background: #222;
+    border: 1px solid #444;
+    color: var(--text);
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #aaa;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    flex: 1;
+}
+
+.secondary-btn {
+    background: var(--lighter);
+    color: var(--text);
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.secondary-btn:hover {
+    background: #333;
+}
+
+/* قسم الخصائص */
+.features {
+    padding: 60px 5%;
+    background: var(--dark);
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+.features h2 {
+    text-align: center;
+    color: var(--gold);
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: var(--light);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-5px);
+}
+
+.feature-card i {
+    color: var(--gold);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    margin-bottom: 15px;
+    color: white;
+}
+
+.feature-card p {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/* الفوتر */
+footer {
+    background: var(--black);
+    padding: 40px 5% 20px;
+    border-top: 1px solid #333;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-section h3 {
+    color: var(--gold);
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.footer-section p {
+    color: #aaa;
+    margin-bottom: 15px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-info div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #aaa;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.social-icons a {
+    color: var(--gold);
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: white;
+}
+
+.copyright {
+    color: #777;
+    font-size: 0.9rem;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+}
+
+/* رسالة تأكيد الإضافة */
+.toast {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--success);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1001;
+    display: none;
+    align-items: center;
+    gap: 10px;
+    animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+    10%, 90% { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* تأثيرات التحميل */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: var(--gold);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* التجاوب مع الشاشات المختلفة */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .stats {
+        gap: 20px;
+    }
+    
+    .cart-footer {
+        width: 90%;
+        justify-content: center;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 60px 15px 40px;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        padding: 20px;
+    }
+    
+    .cart-footer {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+    }
+    
+    .filter-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}</style><script>// بيانات المنتجات مع مسارات الصور المحلية
+const products = [
+    { 
+        id: 1,
+        name: "بزار ليبي ملكي", 
+        price: 25, 
+        oldPrice: 30,
+        weight: "250 جرام",
+        img: "images/products/1.jpg", 
+        description: "مزيج مميز من البهارات الليبية الأصيلة، يعطي نكهة غنية للأطباق التقليدية.",
+        category: ["all", "popular", "spicy"],
+        badge: "الأكثر مبيعاً"
+    },
+    { 
+        id: 2,
+        name: "حرارات العاصمة", 
+        price: 30, 
+        oldPrice: 35,
+        weight: "200 جرام",
+        img: "images/products/2.jpg", 
+        description: "مزيج حار مميز من الفلفل الأحمر والتوابل الحارة، مثالي لمحبي النكهات القوية.",
+        category: ["all", "spicy"],
+        badge: "حار"
+    },
+    { 
+        id: 3,
+        name: "كركم هندي صافي", 
+        price: 15, 
+        oldPrice: 20,
+        weight: "200 جرام",
+        img: "images/products/3.jpg", 
+        description: "كركم أصلي 100% مستورد من الهند، غني بالفوائد الصحية ويعطي لوناً ذهبياً مميزاً.",
+        category: ["all", "popular", "herbs"],
+        badge: "عشبي"
+    },
+    { 
+        id: 4,
+        name: "كمون حوت منعنش", 
+        price: 20, 
+        weight: "200 جرام",
+        img: "images/products/4.jpg", 
+        description: "كمون حب عالي الجودة، ينقع الأطباق بنكهة مميزة وعطرية.",
+        category: ["all", "popular"]
+    },
+    { 
+        id: 5,
+        name: "فلفل أسود حب", 
+        price: 35, 
+        oldPrice: 40,
+        weight: "150 جرام",
+        img: "images/products/5.jpg", 
+        description: "فلفل أسود حب ممتاز، يعطي نكهة قوية وعطرية للأطباق والمشاوي.",
+        category: ["all", "spicy"],
+        badge: "مميز"
+    },
+    { 
+        id: 6,
+        name: "قرفة مطحونة فخرة", 
+        price: 18, 
+        weight: "200 جرام",
+        img: "images/products/6.jpg", 
+        description: "قرفة مطحونة ناعمة، مثالية للحلويات والمشروبات الساخنة.",
+        category: ["all", "herbs"]
+    },
+    { 
+        id: 7,
+        name: "زعفران سوبر", 
+        price: 90, 
+        oldPrice: 110,
+        weight: "1 جرام",
+        img: "images/products/7.jpg", 
+        description: "زعفران إسباني فاخر، يعطي لوناً ذهبياً مميزاً ونكهة لا تضاهى.",
+        category: ["all", "discount"],
+        badge: "خصم 20%"
+    },
+    { 
+        id: 8,
+        name: "زنجبيل مطحون", 
+        price: 15, 
+        weight: "200 جرام",
+        img: "images/products/8.jpg", 
+        description: "زنجبيل مطحون طازج، مثالي للمشروبات الدافئة والطبخ الصحي.",
+        category: ["all", "herbs"]
+    },
+    { 
+        id: 9,
+        name: "خلطة القهوة", 
+        price: 45, 
+        weight: "250 جرام",
+        img: "images/products/9.jpg", 
+        description: "خلطة سرية من الهيل والزعفران والبهارات المميزة لإعداد القهوة العربية.",
+        category: ["all", "popular"],
+        badge: "جديد"
+    },
+    { 
+        id: 10,
+        name: "فلفل أحمر مجروش", 
+        price: 12, 
+        oldPrice: 15,
+        weight: "150 جرام",
+        img: "images/products/10.jpg", 
+        description: "فلفل أحمر مجروش حار، يضيف لوناً ونكهة حارة للأطباق.",
+        category: ["all", "discount", "spicy"],
+        badge: "خصم"
+    }
+];
+
+// سلة المشتريات
+let cart = [];
+let currentFilter = 'all';
+
+// عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+    displayProducts();
+    setupFilterButtons();
+    updateCartDisplay();
+    setCurrentYear();
+    
+    // تحميل السلة من التخزين المحلي إذا كانت موجودة
+    const savedCart = localStorage.getItem('blackGoldCart');
+    if (savedCart) {
+        cart = JSON.parse(savedCart);
+        updateCartDisplay();
+    }
+});
+
+// عرض المنتجات
+function displayProducts() {
+    const grid = document.getElementById('products-grid');
+    const filteredProducts = currentFilter === 'all' 
+        ? products 
+        : products.filter(p => p.category.includes(currentFilter));
+    
+    grid.innerHTML = filteredProducts.map(p => `
+        <div class="product-card" data-id="${p.id}">
+            ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ''}
+            <div class="product-image-container">
+                <img src="${p.img}" alt="${p.name}" class="product-image" loading="lazy" onerror="this.src='images/products/default.jpg'">
+            </div>
+            <div class="product-info">
+                <h3>${p.name}</h3>
+                <p class="product-description">${p.description}</p>
+                
+                <div class="product-meta">
+                    <span><i class="fas fa-weight-hanging"></i> ${p.weight}</span>
+                    <span><i class="fas fa-tag"></i> ${p.category.includes('spicy') ? 'حار' : 'عادي'}</span>
+                </div>
+                
+                <div>
+                    <span class="price">
+                        ${p.price} د.ل
+                        ${p.oldPrice ? `<span class="old-price">${p.oldPrice} د.ل</span>` : ''}
+                    </span>
+                </div>
+                
+                <div class="quantity-controls" id="qty-controls-${p.id}">
+                    <button class="qty-btn" onclick="decreaseQuantity(${p.id})">-</button>
+                    <span class="quantity" id="qty-${p.id}">1</span>
+                    <button class="qty-btn" onclick="increaseQuantity(${p.id})">+</button>
+                </div>
+                
+                <button class="buy-btn" onclick="addToCart(${p.id})" id="btn-${p.id}">
+                    <i class="fas fa-cart-plus"></i> أضف للسلة
+                </button>
+            </div>
+        </div>
+    `).join('');
+}
+
+// إعداد أزرار الفلترة
+function setupFilterButtons() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            filterButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            currentFilter = this.getAttribute('data-filter');
+            displayProducts();
+        });
+    });
+}
+
+// زيادة الكمية
+function increaseQuantity(productId) {
+    const qtyElement = document.getElementById(`qty-${productId}`);
+    let currentQty = parseInt(qtyElement.textContent);
+    qtyElement.textContent = currentQty + 1;
+}
+
+// تقليل الكمية
+function decreaseQuantity(productId) {
+    const qtyElement = document.getElementById(`qty-${productId}`);
+    let currentQty = parseInt(qtyElement.textContent);
+    if (currentQty > 1) {
+        qtyElement.textContent = currentQty - 1;
+    }
+}
+
+// إضافة إلى السلة
+function addToCart(productId) {
+    const product = products.find(p => p.id === productId);
+    const quantity = parseInt(document.getElementById(`qty-${productId}`).textContent);
+    const btn = document.getElementById(`btn-${productId}`);
+    
+    // التحقق مما إذا كان المنتج موجوداً في السلة
+    const existingItemIndex = cart.findIndex(item => item.id === productId);
+    
+    if (existingItemIndex !== -1) {
+        // تحديث الكمية إذا كان المنتج موجوداً
+        cart[existingItemIndex].quantity += quantity;
+    } else {
+        // إضافة منتج جديد إلى السلة
+        cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            quantity: quantity,
+            weight: product.weight
+        });
+    }
+    
+    // تحديث عرض السلة
+    updateCartDisplay();
+    
+    // حفظ السلة في التخزين المحلي
+    localStorage.setItem('blackGoldCart', JSON.stringify(cart));
+    
+    // عرض رسالة التأكيد
+    showToast(`تم إضافة ${product.name} إلى السلة`);
+    
+    // تغيير نص الزر مؤقتاً
+    btn.innerHTML = '<i class="fas fa-check"></i> تمت الإضافة';
+    btn.classList.add('added');
+    
+    setTimeout(() => {
+        btn.innerHTML = '<i class="fas fa-cart-plus"></i> أضف للسلة';
+        btn.classList.remove('added');
+    }, 2000);
+}
+
+// تحديث عرض السلة
+function updateCartDisplay() {
+    const cartCount = document.getElementById('cart-count');
+    const cartTotal = document.getElementById('cart-total');
+    
+    // حساب عدد العناصر والمبلغ الإجمالي
+    let totalItems = 0;
+    let totalAmount = 0;
+    
+    cart.forEach(item => {
+        totalItems += item.quantity;
+        totalAmount += item.price * item.quantity;
+    });
+    
+    cartCount.textContent = totalItems;
+    cartTotal.textContent = `${totalAmount} د.ل`;
+}
+
+// عرض رسالة تأكيد
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toast-message');
+    
+    toastMessage.textContent = message;
+    toast.style.display = 'flex';
+    
+    setTimeout(() => {
+        toast.style.display = 'none';
+    }, 3000);
+}
+
+// عرض نافذة الطلب
+function showOrderModal() {
+    if (cart.length === 0) {
+        showToast('السلة فارغة! أضف منتجات أولاً');
+        return;
+    }
+    
+    const modal = document.getElementById('order-modal');
+    const cartItemsList = document.getElementById('cart-items-list');
+    const subtotalElement = document.getElementById('subtotal');
+    const totalElement = document.getElementById('total');
+    
+    // حساب المجموع
+    let subtotal = 0;
+    cartItemsList.innerHTML = '';
+    
+    cart.forEach((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        subtotal += itemTotal;
+        
+        cartItemsList.innerHTML += `
+            <div class="cart-item">
+                <div class="cart-item-info">
+                    <h4>${item.name}</h4>
+                    <div>${item.quantity} × ${item.price} د.ل</div>
+                    <div class="cart-item-price">${itemTotal} د.ل</div>
+                </div>
+                <button class="cart-item-remove" onclick="removeFromCart(${index})">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        `;
+    });
+    
+    const shipping = 10;
+    const total = subtotal + shipping;
+    
+    subtotalElement.textContent = `${subtotal} د.ل`;
+    totalElement.textContent = `${total} د.ل`;
+    
+    modal.style.display = 'flex';
+}
+
+// إخفاء نافذة الطلب
+function hideOrderModal() {
+    document.getElementById('order-modal').style.display = 'none';
+}
+
+// إزالة منتج من السلة
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartDisplay();
+    localStorage.setItem('blackGoldCart', JSON.stringify(cart));
+    showOrderModal(); // إعادة فتح النافذة لتحديث المحتويات
+}
+
+// إرسال الطلب عبر واتساب
+function sendWhatsAppOrder() {
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const city = document.getElementById('city').value;
+    const address = document.getElementById('address').value.trim();
+    const notes = document.getElementById('notes').value.trim();
+    
+    // التحقق من البيانات
+    if (!name || !phone || !city) {
+        showToast('يرجى ملء جميع الحقول المطلوبة');
+        return;
+    }
+    
+    // تجهيز رسالة الطلب
+    let message = `*طلب جديد - الذهب الأسود للتوابل*%0A%0A`;
+    message += `*الاسم:* ${name}%0A`;
+    message += `*الهاتف:* ${phone}%0A`;
+    message += `*المدينة:* ${city}%0A`;
+    
+    if (address) {
+        message += `*العنوان:* ${address}%0A`;
+    }
+    
+    message += `%0A*تفاصيل الطلب:*%0A`;
+    
+    let totalAmount = 0;
+    cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        totalAmount += itemTotal;
+        message += `- ${item.name} (${item.weight}) × ${item.quantity} = ${itemTotal} د.ل%0A`;
+    });
+    
+    const shipping = 10;
+    const total = totalAmount + shipping;
+    
+    message += `%0A*الإجمالي:* ${totalAmount} د.ل%0A`;
+    message += `*رسوم التوصيل:* ${shipping} د.ل%0A`;
+    message += `*المجموع الكلي:* ${total} د.ل%0A`;
+    
+    if (notes) {
+        message += `%0A*ملاحظات:* ${notes}`;
+    }
+    
+    // رقم الهاتف الافتراضي
+    const phoneNumber = '218913020318';
+    
+    // فتح واتساب مع الرسالة
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+    
+    // إظهار رسالة نجاح
+    showToast('جارٍ إرسال طلبك عبر واتساب...');
+    
+    // تفريغ السلة بعد إرسال الطلب
+    setTimeout(() => {
+        cart = [];
+        localStorage.removeItem('blackGoldCart');
+        updateCartDisplay();
+        hideOrderModal();
+        document.getElementById('order-form').reset();
+    }, 1000);
+}
+
+// تعيين السنة الحالية في الفوتر
+function setCurrentYear() {
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+}
+
+// إغلاق النافذة عند النقر خارجها
+window.onclick = function(event) {
+    const modal = document.getElementById('order-modal');
+    if (event.target === modal) {
+        hideOrderModal();
+    }
+}</script>
