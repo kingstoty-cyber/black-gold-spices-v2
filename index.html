@@ -219,6 +219,39 @@
         </div>
     </footer>
 
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+  import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyA5yo29KsNmX4Um8HidDNsS68deaYwl1NE",
+    authDomain: "blackgoldstore-72baa.firebaseapp.com",
+    projectId: "blackgoldstore-72baa",
+    storageBucket: "blackgoldstore-72baa.firebasestorage.app",
+    messagingSenderId: "318520985054",
+    appId: "1:318520985054:web:33ee4e2579eca033a9494f",
+    measurementId: "G-C87W1X596W"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const db = getFirestore(app);
+
+  // تصدير الدالة لتصبح قابلة للاستخدام في ملف script.js
+  window.saveOrderToFirebase = async (orderData) => {
+    try {
+      await addDoc(collection(db, "orders"), {
+        ...orderData,
+        timestamp: serverTimestamp()
+      });
+      console.log("Order saved to Firebase!");
+    } catch (e) {
+      console.error("Error saving order: ", e);
+    }
+  };
+</script>
+
     <script src="script.js"></script>
 </body>
 </html><style>:root {
